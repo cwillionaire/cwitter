@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="hops">Cwitters</h1>
+<h2 class='malt'><i>"Cwitters Never Lose."</i></h2>
+
+<div class="row">
+<% @t.each do |x| %>
+  <div class="col-md-6">
+        <div class="well">
+        <h3><strong><%= x.user.name %></strong> <%= link_to x.user.username, profile_path(x) %></h3>
+        <h4><%= x.message %></h4>
+        <h6><%= link_to 'Show', x %> | <%= link_to 'Edit', edit_tweet_path(x) %> | <%= link_to 'Destroy', x, method: :delete, data: { confirm: 'Are you sure?' } %></h6>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+<br>
+
+<%= link_to 'New Tweet', new_tweet_path %>
